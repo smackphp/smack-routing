@@ -1,0 +1,27 @@
+{
+    "name": "smackphp/smack-routing",
+    "description": "smackphp routing package",
+    "authors": [
+        {
+            "name": "Daniel Heath",
+            "email": "daniel@smackphp.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Smack\\Routing\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "4.*",
+        "scrutinizer/ocular": "~1.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Smack\\Test\\Routing\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
