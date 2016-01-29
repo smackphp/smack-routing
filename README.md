@@ -21,14 +21,6 @@ $ composer require
 
 require('vendor/autoload.php');
 
-if (isset($_SERVER['BASE'])) {
-	$_SERVER['REQUEST_URI'] = str_replace(
-		$_SERVER['BASE'], 
-		'', 
-		parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
-	);
-}
-
 $router = new \Smack\Routing\Router;
 $router->add('GET', '/^\/user\/(?<id>\d+)$/', function($id){
 	echo 'hello #'.$id;
@@ -36,7 +28,10 @@ $router->add('GET', '/^\/user\/(?<id>\d+)$/', function($id){
 
 $match = $router->route(
 	$_SERVER['REQUEST_METHOD'], 
-	$_SERVER['REQUEST_URI']
+	parse_url(
+	    $_SERVER['REQUEST_URI'], 
+	    PHP_URL_PATH
+	)
 );
 
 call_user_func_array(
