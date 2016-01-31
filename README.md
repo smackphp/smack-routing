@@ -12,7 +12,7 @@
 Via Composer
 
 ``` bash
-$ composer require 
+$ composer require smackphp\smack-routing
 ```
 
 ## Usage
